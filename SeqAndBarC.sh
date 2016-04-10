@@ -8,16 +8,16 @@
 echo "Starting......"
 
 # Converts name to what is found in make.contig file
-grep '^@M0' $1 | cut -f1 -d" " | sed 's/@M02151/M02151/g' | sed 's/:/_/g' > names.txt
+grep '^@M0' $1 | cut -f1 -d" " | sed 's/@M02151/M02151/g' | sed 's/:/_/g' > $1.names.txt
 echo "Completed getting names......"
 
 # Make file with barcodes and group membership
-grep '^@M0' $1 | cut -f2 -d" " | sed 's/1:N:0:0://g' > barcode.txt
+grep '^@M0' $1 | cut -f2 -d" " | sed 's/1:N:0:0://g' > $1.barcode.txt
 echo "Completed getting barcodes......"
 
 #Combine the two files together and remove secondary files
-paste names.txt barcode.txt > $2
-rm names.txt barcode.txt
+paste $1.names.txt $1.barcode.txt > $2
+rm $1.names.txt $1.barcode.txt
 echo "Complete"
 
 
