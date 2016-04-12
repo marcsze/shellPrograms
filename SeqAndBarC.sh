@@ -8,7 +8,7 @@
 echo "Starting......"
 
 # Converts name to what is found in make.contig file
-grep '^@M0' $1 | cut -f1 -d" " | sed 's/@M02151/M02151/g' | sed 's/:/_/g' > $1.names.txt
+grep '^@M0' $1 | cut -f1 -d" " | sed 's/@M0/M0/g' | sed 's/:/_/g' > $1.names.txt
 echo "Completed getting names......"
 
 # Make file with barcodes and group membership
